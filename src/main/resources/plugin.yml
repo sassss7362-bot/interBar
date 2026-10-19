@@ -1,0 +1,15 @@
+name: InterBar
+version: 1.0.0
+main: net.intertime.bar.InterBar
+api-version: '1.21'
+author: InterTime
+description: Боссбар, скорборд справа та TAB для InterTime
+softdepend: [PlaceholderAPI]
+commands:
+  bar:
+    description: Меню налаштувань InterBar
+    aliases: [ib, interbar]
+permissions:
+  intertime.bar.admin:
+    description: Перезавантаження конфігу
+    default: op

@@ -1,0 +1,101 @@
+# InterBar - InterTime
+# Формат тексту: MiniMessage (https://docs.advntr.dev/minimessage/format.html)
+# Плейсхолдери: %player% %online% %max% %ping% %world% %time% %date% %tps%
+#               %x% %y% %z% %rank% %kills% %deaths% %playtime% %health%
+# Якщо встановлено PlaceholderAPI - працюють і його плейсхолдери.
+
+# Як часто оновлювати все (в тіках, 20 = 1 секунда)
+update-ticks: 10
+
+# ============================ СКОРБОРД СПРАВА ============================
+sidebar:
+  enabled: true
+  # Кадри анімації заголовка
+  title-speed: 3        # змінювати кадр кожні N оновлень
+  title-frames:
+    - "<gradient:#00e5ff:#7c4dff:-1><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:-0.75><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:-0.5><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:-0.25><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:0><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:0.25><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:0.5><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+    - "<gradient:#00e5ff:#7c4dff:0.75><bold>ɪɴᴛᴇʀᴛɪᴍᴇ"
+  # Максимум 15 рядків
+  lines:
+    - "<dark_gray>%date% <gray>%time%"
+    - " "
+    - "<aqua>▍ <white>Гравець"
+    - "<gray>  %player%"
+    - "<aqua>▍ <white>Ранг"
+    - "<gray>  %rank%"
+    - " "
+    - "<aqua>▍ <white>Статистика"
+    - "<gray>  Вбивств: <white>%kills%"
+    - "<gray>  Смертей: <white>%deaths%"
+    - "<gray>  Онлайн: <white>%playtime%"
+    - " "
+    - "<aqua>▍ <white>Сервер"
+    - "<gray>  Гравців: <green>%online%<gray>/<green>%max%"
+    - "<gray>  Пінг: <yellow>%ping%мс"
+
+# ============================ БОССБАР ============================
+bossbar:
+  enabled: true
+  interval: 10          # секунд на одне повідомлення
+  # color: PINK BLUE RED GREEN YELLOW PURPLE WHITE
+  # style: PROGRESS NOTCHED_6 NOTCHED_10 NOTCHED_12 NOTCHED_20
+  messages:
+    - text: "<gradient:#00e5ff:#7c4dff><bold>Ласкаво просимо на InterTime, %player%!"
+      color: BLUE
+      style: PROGRESS
+    - text: "<yellow>Грай у казино: <white>/casino"
+      color: YELLOW
+      style: NOTCHED_10
+    - text: "<green>Онлайн: <white>%online%<gray>/<white>%max% <dark_gray>| <aqua>Пінг: <white>%ping%мс"
+      color: GREEN
+      style: NOTCHED_12
+    - text: "<light_purple>Налаштування панелей: <white>/bar"
+      color: PURPLE
+      style: NOTCHED_6
+
+# ============================ TAB ============================
+tab:
+  enabled: true
+  # Сортування гравців за рангом + префікс над головою
+  sort-by-rank: true
+  header:
+    - " "
+    - "<gradient:#00e5ff:#7c4dff><bold>ɪɴᴛᴇʀᴛɪᴍᴇ</bold></gradient>"
+    - "<gray>Онлайн: <white>%online%<gray>/<white>%max%"
+    - " "
+  footer:
+    - " "
+    - "<gray>Пінг: <green>%ping%мс <dark_gray>| <gray>TPS: <green>%tps%"
+    - "<aqua>play.intertime.net"
+    - " "
+
+# ============================ РАНГИ ============================
+# Перший збіг за правом (permission) виграє. Останній ранг має бути без права.
+# Видавай права через LuckPerms: /lp user Нік permission set intertime.bar.rank.vip
+ranks:
+  - id: owner
+    permission: intertime.bar.rank.owner
+    prefix: "<red><bold>OWNER</bold> "
+    color: red
+  - id: admin
+    permission: intertime.bar.rank.admin
+    prefix: "<dark_red><bold>ADMIN</bold> "
+    color: red
+  - id: moder
+    permission: intertime.bar.rank.moder
+    prefix: "<blue><bold>MODER</bold> "
+    color: aqua
+  - id: vip
+    permission: intertime.bar.rank.vip
+    prefix: "<gold><bold>VIP</bold> "
+    color: yellow
+  - id: player
+    permission: ""
+    prefix: "<gray>"
+    color: gray
